@@ -26,11 +26,49 @@
 <body>
     <div id="map"></div>
     <script>
-        var map = L.map('map').setView([51.505, -0.09], 13);
+        var map = L.map('map').setView([1.281042, 103.863493], 17.3);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
              maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+        var marker = L.marker([1.2846, 103.8647]).addTo(map);
+
+        var circle = L.circle([1.283312, 103.864326
+
+], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.3,
+    radius: 25
+}).addTo(map);
+
+var polygon = L.polygon([
+    [1.282582, 103.862899],
+    [1.282601, 103.863094],
+    [1.282365, 103.863080],
+    [1.282334, 103.862888]
+    
+]).addTo(map);
+
+marker.bindPopup("Flower Dome").openPopup();
+circle.bindPopup("Indian Garden");
+polygon.bindPopup("Malay Garden");
+
+var popup = L.popup()
+    .setLatLng([1.2820, 103.8639])
+    .setContent("<b>Gardens by the Bay</b><br>Singapore")
+    .openOn(map);
+    
+    var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
     </script>
 
 </body>
