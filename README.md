@@ -1,4 +1,3 @@
-# helloleaflet1
+# jsonleaflet
 
-Following the quickstart from leaflet
-https://leafletjs.com/index.html
+# using geoJSON files
